@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import theme from './Config/theme';
+import { ThemeProvider, CssBaseline  } from "@material-ui/core";
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
+    <ThemeProvider theme={theme}>
+    <CssBaseline />
     <App />
-  </React.StrictMode>,
+    </ThemeProvider>
+  </React.Fragment>,
   document.getElementById('root')
 );
 
