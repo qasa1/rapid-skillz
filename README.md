@@ -30,6 +30,7 @@ Mainly, this project will rely of graph algorithms to search for the fastest pat
 ## Technology Stack
 1. React
 2. Material UI
+3. Firebase
 
 ## Current Status
 1. Front end design has been completed.
