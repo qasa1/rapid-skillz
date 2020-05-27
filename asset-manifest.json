@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/rapid-skillz/static/css/main.d1b05096.chunk.css",
+    "main.js": "/rapid-skillz/static/js/main.f78e72c3.chunk.js",
+    "main.js.map": "/rapid-skillz/static/js/main.f78e72c3.chunk.js.map",
+    "runtime-main.js": "/rapid-skillz/static/js/runtime-main.c71191d8.js",
+    "runtime-main.js.map": "/rapid-skillz/static/js/runtime-main.c71191d8.js.map",
+    "static/css/2.9de105d4.chunk.css": "/rapid-skillz/static/css/2.9de105d4.chunk.css",
+    "static/js/2.9660cbd8.chunk.js": "/rapid-skillz/static/js/2.9660cbd8.chunk.js",
+    "static/js/2.9660cbd8.chunk.js.map": "/rapid-skillz/static/js/2.9660cbd8.chunk.js.map",
+    "index.html": "/rapid-skillz/index.html",
+    "precache-manifest.0021c8b7f4009382403124464b4545a5.js": "/rapid-skillz/precache-manifest.0021c8b7f4009382403124464b4545a5.js",
+    "service-worker.js": "/rapid-skillz/service-worker.js",
+    "static/css/2.9de105d4.chunk.css.map": "/rapid-skillz/static/css/2.9de105d4.chunk.css.map",
+    "static/css/main.d1b05096.chunk.css.map": "/rapid-skillz/static/css/main.d1b05096.chunk.css.map",
+    "static/js/2.9660cbd8.chunk.js.LICENSE.txt": "/rapid-skillz/static/js/2.9660cbd8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c71191d8.js",
+    "static/css/2.9de105d4.chunk.css",
+    "static/js/2.9660cbd8.chunk.js",
+    "static/css/main.d1b05096.chunk.css",
+    "static/js/main.f78e72c3.chunk.js"
+  ]
+}
