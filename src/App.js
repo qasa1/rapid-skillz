@@ -25,7 +25,6 @@ function App() {
   const classes = useStyles();
 
   const [skill, setSkill] = React.useState('');
-  console.log(skill);
   return (
     <div className="App">
       <Header/>
@@ -36,14 +35,16 @@ function App() {
             labelId="skills-label"
             id="skills-dropdown"
             value={skill}
+            displayEmpty
             onChange={(event) => setSkill(event.target.value)}
           >
-            <MenuItem value="default-selection">
+            <MenuItem value="">
               Please select a skill...
             </MenuItem>
             <MenuItem value="basic-frontend">Basic Frontend Developer</MenuItem>
             <MenuItem value="intermediate-frontend">Intermediate Frontend Developer</MenuItem>
             <MenuItem value="basic-backend">Basic Backend Developer</MenuItem>
+            <MenuItem value="basic-backend">Basic Data Scientist</MenuItem>
           </Select>
         </FormControl>
       </div>

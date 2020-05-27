@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import {basicFrontEndSkills, basicFrontEndEdges} from '../Data/skills-store';
 import PriorityQueue from './priorityQ.component';
 import Table from './table.component';
+import LoadingScreen from './Loading/loading.component';
 
 export default class Graph extends Component {
     constructor(props) {
@@ -10,15 +11,23 @@ export default class Graph extends Component {
         this.individualTimes = {};
         this.state = {
             fastestPath: [],
+            done: undefined
         }
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps) {  
         if (prevProps.skill !== this.props.skill) {
-            this.resetComponent();
-            this.displayResults(this.props.skill)
+                this.setState({done: undefined});
+
+                this.resetComponent();
+                this.displayResults(this.props.skill)
+                .then(response => {
+                    this.setState({done: true});
+                })
+                .catch(error => console.log(error));
         }
     }
+
 
     resetComponent = () => {
         this.setState({
@@ -29,13 +38,20 @@ export default class Graph extends Component {
     }
 
     displayResults = (skill) => {
-        
-        this.buildGraph(skill);
+        return new Promise((resolve, reject) => {
 
-        if (Object.keys(this.adjacencyList).length > 0) {
-            this.addEdges();
-            this.djikstra(1,25);
-        }
+            setTimeout(() => {
+                this.buildGraph(skill);
+
+                if (Object.keys(this.adjacencyList).length > 0) {
+                    this.addEdges();
+                    this.djikstra(1,25);
+                }
+
+                resolve("success");
+            }, 2500)
+
+        });
     }
 
     buildGraph = (skill) => {
@@ -48,11 +64,8 @@ export default class Graph extends Component {
     }
 
     getSkillData = (skill) => {
-        console.log(skill);
         switch(skill) {
             case "basic-frontend": return basicFrontEndSkills;
-            case "intermediate-frontend": return [];
-            case "basic-backend": return [];
             default: return [];
         }
     }
@@ -113,7 +126,6 @@ export default class Graph extends Component {
             this.individualTimes[finish.name] = referenceToLastNode[1];
             result.push([finish.name, finish.time]);
 
-            console.log(result);
             this.setState({
                 fastestPath: result
             })
@@ -143,12 +155,14 @@ export default class Graph extends Component {
         if (graphExists) {
             output = <Table data={this.state.fastestPath} times={this.individualTimes}/>;
         }else {
-            output = "Sorry, we are current working on adding this skill to our platform"
+            output = "Sorry, we are currently working on adding this skill to our platform"
         }
+
         return (
             <div>
-                {/* {this.state.fastestPath.map((item, index) => <p key={index}>{item[0]} {this.individualTimes[item[0]]}</p>)} */}
-                {output}
+                {this.props.skill !== "" ? (
+                !this.state.done  ? (<LoadingScreen/>): (output)
+                ) : " "}
             </div>
         )
     }
