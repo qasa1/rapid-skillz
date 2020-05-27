@@ -68,7 +68,7 @@ export default class SimpleTable extends Component {
 
     render() {
         return (
-            <Grid container justify="center">
+            <Grid container justify="center" style={{marginBottom: "20px"}}>
                 <Grid item>
                     <TableContainer component={Paper}>
                     <Table  aria-label="simple table">
